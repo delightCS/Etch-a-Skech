@@ -2,6 +2,9 @@ const container = document.querySelector(".container");
 
 let isDragging = false;
 
+const colorInput = document.querySelector("input");
+// colorInput.addEventListener("change", function () {});
+
 for (i = 0; i < 16 * 16; i++) {
   const cell = document.createElement("div");
   cell.setAttribute("style", "border: 1px solid gray; height: 37.5px");
@@ -13,7 +16,7 @@ for (i = 0; i < 16 * 16; i++) {
 
   cell.addEventListener("mousemove", function (event) {
     if (isDragging) {
-      cell.style.backgroundColor = "blue";
+      cell.style.backgroundColor = colorInput.value;
     }
   });
 
