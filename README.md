@@ -1,1 +1,1 @@
-It's a sinple etch
+It's a simple etch a sketch.

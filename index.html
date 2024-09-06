@@ -6,15 +6,25 @@
     <title>Etch a Sketch</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="tailwindstyle.css" />
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 700px;
+        height: 700px;
+        margin: 50px auto;
+      }
+      .cell {
+        width: calc(100% / 64);
+        height: calc(100% / 64);
+        border: 2px solid #ccc;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
-  <body class="relative">
+  <body>
     <h1 class="text-6xl font-bold text-center">Etch a Sketch</h1>
 
-    <p class="para absolute left-56 top-96">
-      <input type="color" />
-    </p>
-    <div
-      class="container grid grid-cols-16 text-center w-[600px] mx-auto my-14"
-    ></div>
+    <div class="container"></div>
   </body>
 </html>
