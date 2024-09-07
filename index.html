@@ -10,13 +10,19 @@
       .container {
         display: flex;
         flex-wrap: wrap;
-        width: 700px;
-        height: 700px;
-        margin: 50px auto;
+        width: 600px;
+        height: 600px;
+        /* margin: 50px auto; */
+        /* border: 2px solid #ccc; */
       }
+
+      :root {
+        --divisor: 1;
+      }
+
       .cell {
-        width: calc(100% / 64);
-        height: calc(100% / 64);
+        width: calc(100% / var(--divisor));
+        height: calc(100% / var(--divisor));
         border: 2px solid #ccc;
         box-sizing: border-box;
       }
@@ -24,7 +30,16 @@
   </head>
   <body>
     <h1 class="text-6xl font-bold text-center">Etch a Sketch</h1>
-
-    <div class="container"></div>
+    <div>
+      <div>
+        <input
+          type="text"
+          class="border-2 border-blue-400"
+          placeholder="Enter a number between 1 and 100"
+        />
+        <button>Create grid</button>
+      </div>
+      <div class="container"></div>
+    </div>
   </body>
 </html>

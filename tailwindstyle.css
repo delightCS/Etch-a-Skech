@@ -612,6 +612,10 @@ video {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
