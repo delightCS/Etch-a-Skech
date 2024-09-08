@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+selectedColor = "#000";
 
 function creategrid(gridSize) {
   document.documentElement.style.setProperty("--divisor", gridSize);
@@ -8,6 +9,11 @@ function creategrid(gridSize) {
   for (let i = 0; i < totalCell; i++) {
     const cell = document.createElement("div");
     cell.classList.add("cell");
+
+    cell.addEventListener("mousemove", () => {
+      cell.style.backgroundColor = selectedColor;
+    });
+
     container.appendChild(cell);
   }
 }
@@ -21,6 +27,11 @@ function changeCellNum() {
     alert("Input a number between 1 and 100.");
   }
 }
+
+const colorInput = document.querySelector("#colorInput");
+colorInput.addEventListener("input", (event) => {
+  selectedColor = event.target.value;
+});
 
 const createGridButton = document.querySelector("button");
 createGridButton.addEventListener("click", changeCellNum);
