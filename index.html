@@ -12,12 +12,12 @@
         flex-wrap: wrap;
         width: 600px;
         height: 600px;
-        /* margin: 50px auto; */
+        margin: 50px 0;
         /* border: 2px solid #ccc; */
       }
 
       :root {
-        --divisor: 1;
+        --divisor: 16;
       }
 
       .cell {
@@ -30,14 +30,19 @@
   </head>
   <body>
     <h1 class="text-6xl font-bold text-center">Etch a Sketch</h1>
-    <div>
-      <div>
+    <div class="flex justify-evenly">
+      <div class="mt-40">
         <input
           type="text"
-          class="border-2 border-blue-400"
-          placeholder="Enter a number between 1 and 100"
+          class="border-4 border-blue-400 px-16 py-1 rounded-lg mb-4"
+          placeholder="Input between 1 and 100"
         />
-        <button>Create grid</button>
+        <button
+          class="text-white font-bold bg-blue-400 px-8 py-2 rounded-lg hover:bg-white hover:text-blue-400 transition-all duration-300"
+        >
+          Create grid
+        </button>
+        <input type="color" class="block" />
       </div>
       <div class="container"></div>
     </div>
