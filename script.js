@@ -1,5 +1,8 @@
 const container = document.querySelector(".container");
+const clear = document.querySelector("#clear");
+
 selectedColor = "#000";
+let useRandomColor = false;
 
 function creategrid(gridSize) {
   document.documentElement.style.setProperty("--divisor", gridSize);
@@ -10,10 +13,15 @@ function creategrid(gridSize) {
     const cell = document.createElement("div");
     cell.classList.add("cell");
 
-    cell.addEventListener("mousemove", () => {
-      cell.style.backgroundColor = selectedColor;
+    cell.addEventListener("mouseenter", () => {
+      cell.style.backgroundColor = useRandomColor
+        ? getRandomColors()
+        : selectedColor;
     });
 
+    clear.addEventListener("click", () => {
+      cell.setAttribute("style", "background-color: white");
+    });
     container.appendChild(cell);
   }
 }
@@ -29,9 +37,23 @@ function changeCellNum() {
 }
 
 const colorInput = document.querySelector("#colorInput");
-colorInput.addEventListener("input", (event) => {
+colorInput.addEventListener("click", (event) => {
   selectedColor = event.target.value;
+  useRandomColor = false;
 });
+
+const randomColor = document.querySelector("#randomColor");
+randomColor.addEventListener("click", () => {
+  useRandomColor = !useRandomColor;
+});
+
+function getRandomColors() {
+  const h = Math.floor(Math.random() * 360);
+  const s = Math.floor(Math.random() * 100) + "%";
+  const l = Math.floor(Math.random() * 50) + "%";
+
+  return `hsl(${h},${s},${l})`;
+}
 
 const createGridButton = document.querySelector("button");
 createGridButton.addEventListener("click", changeCellNum);
